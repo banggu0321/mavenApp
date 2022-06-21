@@ -7,7 +7,13 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/resource/di1.xml</config>
+		<config>src/main/resource/di2_d02.xml</config>
+		<config>src/main/resource/di3_d02.xml</config>
+		<config>src/main/resource/di4_d02.xml</config>
+		<config>src/main/resource/di1_d01.xml</config>
+		<config>src/main/resource/di5_d02.xml</config>
+		<config>src/main/resource/aop1_d02.xml</config>
+		<config>src/main/resource/aop2_d02.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

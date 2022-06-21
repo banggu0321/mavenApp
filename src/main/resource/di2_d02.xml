@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- defult 생성자 -->
+	<bean id="car1" class="com.kosta.mavenApp.section2_d02.Car"></bean>
+	<!-- index -->
+	<bean id="car2" class="com.kosta.mavenApp.section2_d02.Car">
+		<constructor-arg index="0" value="A모델"></constructor-arg>
+		<constructor-arg index="1" value="1000"></constructor-arg>
+		<constructor-arg index="2" value="black"></constructor-arg>
+	</bean>
+	<!-- name -->
+	<bean id="car3" class="com.kosta.mavenApp.section2_d02.Car">
+		<constructor-arg name="model" value="B모델"></constructor-arg>
+		<constructor-arg name="price" value="2000"></constructor-arg>
+		<constructor-arg name="color" value="white"></constructor-arg>
+	</bean>
+	<!-- default생성자로 생성후, setter()로 값을 주입한다. -->
+	<bean id="car4" class="com.kosta.mavenApp.section2_d02.Car">
+		<property name="model" value="C모델"></property>
+		<property name="price" value="3000"></property>
+		<property name="color" value="red"></property>
+	</bean>
+	
+	<bean id="person1" class="com.kosta.mavenApp.section2_d02.Person" />
+	<bean id="person2" class="com.kosta.mavenApp.section2_d02.Person">
+		<constructor-arg name="name" value="홍길동"></constructor-arg>
+		<constructor-arg name="phone" value="010-1234-5678"></constructor-arg>
+		<constructor-arg name="car" ref="car4"></constructor-arg>
+	</bean>
+	<bean id="person3" class="com.kosta.mavenApp.section2_d02.Person">
+		<property name="name" value="홍자영"></property>
+		<property name="phone" value="010-9999-9999"></property>
+		<property name="car" ref="car3"></property>
+	</bean>
+	<bean id="person4" class="com.kosta.mavenApp.section2_d02.Person">
+		<property name="name" value="현"></property>
+		<property name="phone" value="010-7777-9999"></property>
+		<property name="major">
+			<list>
+				<value>컴퓨터공학</value>
+				<value>경제학</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="person5" class="com.kosta.mavenApp.section2_d02.Person">
+		<property name="name" value="정"></property>
+		<property name="phone" value="010-3333-9999"></property>
+		<property name="major">
+			<list>
+				<value>컴퓨터공학</value>
+				<value>경제학</value>
+			</list>
+		</property>
+		<property name="자격증들">
+			<list>
+				<ref bean="li1"/>
+				<ref bean="li2"/>
+			</list>
+		</property>
+		<property name="bookMap">
+			<map>
+				<entry><!-- key,value 한 건 -->
+					<key><value>소장책1</value></key>
+					<ref bean="book1"/>
+				</entry>
+				<entry><!-- key,value 한 건 -->
+					<key><value>소장책2</value></key>
+					<ref bean="book2"/>
+				</entry>
+			</map>
+		</property>
+		<property name="friends">
+			<set value-type="java.lang.String"> 
+				<value>친구1</value>
+				<value>친구2</value>
+			</set>
+		</property>
+		<property name="myProfile">
+			<props>
+				<prop key="hobby">등산</prop>
+				<prop key="home">역삼</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="book1" class="com.kosta.mavenApp.section2_d02.Book">
+		<property name="title" value="이것이 자바다"></property>
+		<property name="price" value="30000"></property>
+		<property name="kind" value="it"></property>
+	</bean>
+	<bean id="book2" class="com.kosta.mavenApp.section2_d02.Book">
+		<property name="title" value="Spring"></property>
+		<property name="price" value="30000"></property>
+		<property name="kind" value="it"></property>
+	</bean>
+	<bean id="li1" class="com.kosta.mavenApp.section2_d02.License">
+		<property name="title" value="운전면허"></property>
+		<property name="year" value="2000"></property>
+	</bean>
+	<bean id="li2" class="com.kosta.mavenApp.section2_d02.License">
+		<property name="title" value="정보처리기사"></property>
+		<property name="year" value="2010"></property>
+	</bean>
+</beans>

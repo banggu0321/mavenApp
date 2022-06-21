@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="car1" class="com.kosta.mavenApp.section2_d02.Car"
+	p:model="그랜져" p:price="5000" p:color="black" />
+	<!-- 
+	<bean id="car2" class="com.kosta.mavenApp.day02.section2.Car"
+	p:model="그랜져" p:price="5000" p:color="black" />
+	 -->
+	<bean id="person" class="com.kosta.mavenApp.section2_d02.Person"
+	p:name="홍길동" p:phone="01-123" autowire="byName" />
+	
+	<bean id="person2" class="com.kosta.mavenApp.section2_d02.Person"
+	p:name="홍길동" p:phone="01-123" autowire="byType" scope="singleton"/>
+
+</beans>
